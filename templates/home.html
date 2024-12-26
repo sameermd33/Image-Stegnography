@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Steganography</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Poppins:wght@600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Roboto', sans-serif;
+            background: linear-gradient(120deg, #1e3c72, #2a5298);
+            color: #fff;
+            overflow-x: hidden;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 50px;
+            background: rgba(0, 0, 0, 0.6);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        header h1 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 28px;
+            color: #ffba08;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+        }
+
+        nav ul li {
+            font-size: 18px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #fff;
+            transition: color 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: #ffba08;
+        }
+
+        .hero {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            text-align: center;
+            animation: fadeIn 2s ease;
+        }
+
+        .hero h2 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 48px;
+            line-height: 1.2;
+            background: linear-gradient(90deg, #ffba08, #f48c06, #d00000);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero p {
+            font-size: 18px;
+            margin-top: 20px;
+            max-width: 600px;
+        }
+
+        .hero button {
+            margin-top: 40px;
+            padding: 15px 30px;
+            font-size: 16px;
+            font-weight: bold;
+            background: linear-gradient(90deg, #06d6a0, #118ab2);
+            border: none;
+            color: white;
+            cursor: pointer;
+            border-radius: 30px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .hero button:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 25px rgba(0, 0, 0, 0.5);
+        }
+
+        .animated-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: -1;
+        }
+
+        .animated-background span {
+            position: absolute;
+            display: block;
+            width: 20px;
+            height: 20px;
+            background: rgba(255, 255, 255, 0.3);
+            animation: float 6s infinite ease-in-out;
+            border-radius: 50%;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-20px);
+            }
+            100% {
+                transform: translateY(0);
+            }
+        }
+
+        .animated-background span:nth-child(odd) {
+            animation-duration: 8s;
+        }
+
+        .animated-background span:nth-child(even) {
+            animation-duration: 5s;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            font-size: 14px;
+            background: rgba(0, 0, 0, 0.8);
+            color: #ccc;
+        }
+
+        footer a {
+            color: #ffba08;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>StegoSphere</h1>
+        <nav>
+            <ul>
+                <li><a href="{{ url_for('home') }}">Home</a></li>
+                <li><a href="{{ url_for('team') }}">Team</a></li>
+                <li><a href="{{ url_for('embed') }}">Embed</a></li>
+                <li><a href="{{ url_for('extract') }}">Extract</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="hero">
+        <h2>Discover the Art of Hidden Messages</h2>
+        <p>Welcome to StegoSphere, where secrets meet creativity. Explore cutting-edge steganography with robust encryption for secure communication.</p>
+        <button onclick="window.location.href='embed.html';">Get Started</button>
+    </div>
+
+    <div class="animated-background">
+        <span style="top: 20%; left: 30%;"></span>
+        <span style="top: 70%; left: 20%;"></span>
+        <span style="top: 40%; left: 60%;"></span>
+        <span style="top: 80%; left: 50%;"></span>
+        <span style="top: 30%; left: 70%;"></span>
+    </div>
+
+    <footer>
+        Made with ❤️ by the StegoSphere Team. <a href="team.html">Meet us</a>.
+    </footer>
+</body>
+</html>
