@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Team - StegoSphere</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Poppins:wght@600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Roboto', sans-serif;
+            background: linear-gradient(120deg, #1e3c72, #2a5298);
+            color: #fff;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh; /* Ensures the page takes up the full height */
+            overflow-x: hidden;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 50px;
+            background: rgba(0, 0, 0, 0.6);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        header h1 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 28px;
+            color: #ffba08;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+        }
+
+        nav ul li {
+            font-size: 18px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #fff;
+            transition: color 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: #ffba08;
+        }
+
+        .team-section {
+            padding: 50px 20px;
+            text-align: center;
+        }
+
+        .team-section h2 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 42px;
+            margin-bottom: 30px;
+            background: linear-gradient(90deg, #ffba08, #f48c06, #d00000);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .team-section p {
+            font-size: 18px;
+            margin-bottom: 40px;
+            max-width: 600px;
+            margin: auto;
+            padding-bottom: 60px;
+        }
+
+        /* Improved grid layout for team members */
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); /* Adjusted card size */
+            gap: 80px;  /* Reduced spacing between cards */
+            justify-content: center;
+            align-items: start;
+            padding: 0 20px;
+
+        }
+
+        /* Styling for each team member card */
+        .team-member {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            padding: 20px;  /* Reduced padding for smaller cards */
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s, box-shadow 0.3s;
+            width: 100%;  /* Ensures cards are responsive */
+            max-width: 280px;  /* Reduced max width */
+            margin: auto;
+        }
+
+        .team-member:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 25px rgba(0, 0, 0, 0.5);
+        }
+
+        .team-member img {
+            width: 135px;  /* Increased image size */
+            height: 120px;
+            border-radius: 50%;
+            margin-bottom: 15px;  /* Reduced margin between image and text */
+            border: 3px solid #ffba08;
+        }
+
+        .team-member h3 {
+            font-size: 18px;  /* Reduced font size */
+            margin-bottom: 8px;
+            color: #ffba08;
+        }
+
+        .team-member p {
+            font-size: 14px;  /* Reduced font size */
+            color: #ccc; /* Lighter color for role text */
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            font-size: 14px;
+            background: rgba(0, 0, 0, 0.8);
+            color: #ccc;
+            margin-top: auto; /* Push footer to the bottom */
+        }
+
+        footer a {
+            color: #ffba08;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>StegoSphere</h1>
+        <nav>
+            <ul>
+                <li><a href="{{ url_for('home') }}">Home</a></li>
+                <li><a href="{{ url_for('team') }}">Team</a></li>
+                <li><a href="{{ url_for('embed') }}">Embed</a></li>
+                <li><a href="{{ url_for('extract') }}">Extract</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="team-section">
+        <h2>Meet Our Team</h2>
+        <p>Get to know the passionate individuals behind StegoSphere. We're dedicated to creating innovative solutions and pushing the boundaries of technology.</p>
+        <div class="team-grid">
+            <div class="team-member">
+                <img src="static/poojitha.jpeg" alt="Team Member 1">
+                <h3>R.Poojitha</h3>
+                <p>Team Lead</p>
+            </div>
+            <div class="team-member">
+                <img src="static/fransis.jpeg" alt="Team Member 2">
+                <h3> M.Francis Xavier</h3>
+                <p>Team Member</p>
+            </div>
+            <div class="team-member">
+                <img src="static/venkatanadh.jpeg" alt="Team Member 3">
+                <h3>Ch.Venkatanadh</h3>
+                <p>Team Member</p>
+            </div>
+            <div class="team-member">
+                <img src="static/sabhiq.jpeg" alt="Team Member 4">
+                <h3>Sayyed Sabhiq</h3>
+                <p>Team Member</p>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        Made with ❤️ by the StegoSphere Team. <a href="home.html">Back to Home</a>.
+    </footer>
+</body>
+</html>
