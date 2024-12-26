@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Encoding Result - StegoSphere</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Poppins:wght@600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Roboto', sans-serif;
+            background: linear-gradient(120deg, #1e3c72, #2a5298);
+            color: #fff;
+            overflow-x: hidden;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 50px;
+            background: rgba(0, 0, 0, 0.6);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        header h1 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 28px;
+            color: #ffba08;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+        }
+
+        nav ul li {
+            font-size: 18px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #fff;
+            transition: color 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: #ffba08;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: rgba(0, 0, 0, 0.5);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        .container h1 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 36px;
+            margin-bottom: 20px;
+            color: #ffba08;
+        }
+
+        .container p {
+            font-size: 18px;
+            line-height: 1.6;
+            color: #fff;
+        }
+
+        a {
+            text-decoration: none;
+            color: #ffba08;
+            font-weight: bold;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .key-container {
+            background-color: blue;
+            border-left: 5px solid #4CAF50;
+            padding: 10px;
+            margin: 20px 0;
+            font-size: 1.1rem;
+            word-wrap: break-word;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            font-size: 14px;
+            background: rgba(0, 0, 0, 0.8);
+            color: #ccc;
+        }
+
+        footer a {
+            color: #ffba08;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>StegoSphere</h1>
+        <nav>
+            <ul>
+                <li><a href="{{ url_for('home') }}">Home</a></li>
+                <li><a href="{{ url_for('team') }}">Team</a></li>
+                <li><a href="{{ url_for('embed') }}">Embed</a></li>
+                <li><a href="{{ url_for('extract') }}">Extract</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="container">
+        <h1>Encoding Successful!</h1>
+        
+        <div class="key-container">
+            <p>Your ChaCha20 key (keep it safe): <strong>{{ chacha_key }}</strong></p>
+        </div>
+        
+        <p>Download your encoded image: <a href="{{ encoded_image }}" download>Click here</a></p>
+        
+        <img src="{{ encoded_image }}" alt="Encoded Image" style="max-width: 100%; margin-top: 20px; border-radius: 8px;">
+    </div>
+
+    <footer>
+        Made with ❤️ by the StegoSphere Team. <a href="{{ url_for('home') }}">Back to Home</a>.
+    </footer>
+
+</body>
+</html>
