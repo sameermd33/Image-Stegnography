@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Extract Message - StegoSphere</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Poppins:wght@600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Roboto', sans-serif;
+            background: linear-gradient(120deg, #1e3c72, #2a5298);
+            color: #fff;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 50px;
+            background: rgba(0, 0, 0, 0.6);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        header h1 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 28px;
+            color: #ffba08;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+        }
+
+        nav ul li {
+            font-size: 18px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #fff;
+            transition: color 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: #ffba08;
+        }
+
+        .form-container {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            margin-top: 40px;
+        }
+
+        .form-container form {
+            background: rgba(0, 0, 0, 0.7);
+            padding: 30px;
+            border-radius: 8px;
+            width: 100%;
+            max-width: 500px;
+        }
+
+        .form-container input,
+        .form-container button {
+            width: 100%;
+            padding: 15px;
+            margin-bottom: 15px;
+            font-size: 16px;
+            border-radius: 5px;
+            border: none;
+        }
+
+        .form-container input {
+            background-color: #333;
+            color: white;
+            margin-bottom: 15px;
+        }
+
+        .form-container button {
+            background: linear-gradient(90deg, #06d6a0, #118ab2);
+            color: white;
+            cursor: pointer;
+            font-weight: bold;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .form-container button:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 25px rgba(0, 0, 0, 0.5);
+        }
+
+        .animated-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: -1;
+        }
+
+        .animated-background span {
+            position: absolute;
+            display: block;
+            width: 20px;
+            height: 20px;
+            background: rgba(255, 255, 255, 0.3);
+            animation: float 6s infinite ease-in-out;
+            border-radius: 50%;
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-20px);
+            }
+            100% {
+                transform: translateY(0);
+            }
+        }
+
+        .animated-background span:nth-child(odd) {
+            animation-duration: 8s;
+        }
+
+        .animated-background span:nth-child(even) {
+            animation-duration: 5s;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            font-size: 14px;
+            background: rgba(0, 0, 0, 0.8);
+            color: #ccc;
+        }
+
+        footer a {
+            color: #ffba08;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>StegoSphere</h1>
+        <nav>
+            <ul>
+                <li><a href="{{ url_for('home') }}">Home</a></li>
+                <li><a href="{{ url_for('team') }}">Team</a></li>
+                <li><a href="{{ url_for('embed') }}">Embed</a></li>
+                <li><a href="{{ url_for('extract') }}">Extract</a></li>
+            </ul>
+        </nav>
+    </header>
+    <div class="form-container">
+        <form action="{{ url_for('decode') }}" method="POST" enctype="multipart/form-data">
+            <input type="file" name="stego_image" required>
+            <input type="password" name="password" placeholder="Password" required>
+            <input type="text" name="chacha_key" placeholder="ChaCha20 Key (Base64)" required>
+            <button type="submit">Extract Message</button>
+        </form>
+    </div>
+
+    <div class="animated-background">
+        <span style="top: 20%; left: 30%;"></span>
+        <span style="top: 70%; left: 20%;"></span>
+        <span style="top: 40%; left: 60%;"></span>
+        <span style="top: 80%; left: 50%;"></span>
+        <span style="top: 30%; left: 70%;"></span>
+    </div>
+
+    <footer>
+        Made with ❤️ by the StegoSphere Team. <a href="team.html">Meet us</a>.
+    </footer>
+</body>
+</html>
